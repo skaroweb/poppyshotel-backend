@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dynamiczone": {
+      "type": "dynamiczone",
+      "components": [
+        "dynamic-zone.location",
+        "dynamic-zone.gallery",
+        "dynamic-zone.facilities",
+        "dynamic-zone.experiences",
+        "dynamic-zone.dining",
+        "dynamic-zone.banner"
+      ]
+    },
+    "global": {
+      "type": "dynamiczone",
+      "components": [
+        "global.header",
+        "global.footer"
+      ]
+    },
+    "shared": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.seo",
+        "shared.link",
+        "shared.button"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_dynamic_zone_banquet_venues",
+  "info": {
+    "displayName": "banquet_venue"
+  },
+  "options": {},
+  "attributes": {
+    "hallname": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "string"
+    },
+    "arrangement": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

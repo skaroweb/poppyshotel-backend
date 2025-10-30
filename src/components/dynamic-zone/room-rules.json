@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_dynamic_zone_room_rules",
+  "info": {
+    "displayName": "room_rules"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "check_in_out": {
+      "type": "string"
+    },
+    "check_in_out_desc": {
+      "type": "blocks"
+    },
+    "child_policy": {
+      "type": "string"
+    },
+    "child_policy_desc": {
+      "type": "blocks"
+    },
+    "pet_policy": {
+      "type": "string"
+    },
+    "pet_policy_desc": {
+      "type": "blocks"
+    },
+    "cancellation_policy": {
+      "type": "string"
+    },
+    "cancellation_policy_desc": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

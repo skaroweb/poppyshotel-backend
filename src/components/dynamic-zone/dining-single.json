@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_dynamic_zone_dining_singles",
+  "info": {
+    "displayName": "Dining_single"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "category": {
+      "type": "string"
+    },
+    "dining_logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image_alt": {
+      "type": "string"
+    },
+    "timing": {
+      "type": "blocks"
+    },
+    "swiggy": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "zomato": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

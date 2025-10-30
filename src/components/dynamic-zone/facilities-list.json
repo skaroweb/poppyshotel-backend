@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_dynamic_zone_facilities_lists",
+  "info": {
+    "displayName": "facilities_list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image_alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

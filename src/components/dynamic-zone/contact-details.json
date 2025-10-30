@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_dynamic_zone_contact_details",
+  "info": {
+    "displayName": "contact_details"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "address_text": {
+      "type": "string"
+    },
+    "address_desc": {
+      "type": "blocks"
+    },
+    "mail_text": {
+      "type": "string"
+    },
+    "mail_button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "phone_text": {
+      "type": "string"
+    },
+    "phone_link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

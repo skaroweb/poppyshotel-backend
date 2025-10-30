@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "Offers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "callnow_text": {
+      "type": "string"
+    },
+    "contactnum": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "offer_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::destination.destination"
+    }
+  }
+}

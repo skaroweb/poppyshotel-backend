@@ -19,16 +19,19 @@
     "@strapi/plugin-users-permissions": "5.28.0",
     "@strapi/strapi": "5.28.0",
     "better-sqlite3": "11.3.0",
+    "ngrok": "^5.0.0-beta.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "sharp": "^0.34.4",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.19.23",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",

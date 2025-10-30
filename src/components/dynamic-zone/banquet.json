@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_dynamic_zone_banquets",
+  "info": {
+    "displayName": "banquet_hall"
+  },
+  "options": {},
+  "attributes": {
+    "banquet_name": {
+      "type": "string"
+    },
+    "banquet_desc": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image_alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

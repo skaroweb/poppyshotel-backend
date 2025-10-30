@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_dynamic_zone_locations",
+  "info": {
+    "displayName": "Location"
+  },
+  "options": {},
+  "attributes": {
+    "source_url": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

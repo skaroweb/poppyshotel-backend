@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "destinations",
+  "info": {
+    "singularName": "destination",
+    "pluralName": "destinations",
+    "displayName": "Destination"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "hotels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hotel.hotel"
+    },
+    "banner": {
+      "type": "component",
+      "component": "dynamic-zone.banner",
+      "repeatable": false
+    },
+    "overview": {
+      "type": "component",
+      "component": "dynamic-zone.overview",
+      "repeatable": false
+    },
+    "overview_hotel": {
+      "type": "component",
+      "component": "dynamic-zone.overview-hotel",
+      "repeatable": false
+    },
+    "experiences": {
+      "type": "component",
+      "component": "dynamic-zone.experiences",
+      "repeatable": false
+    },
+    "newsletter": {
+      "type": "component",
+      "component": "shared.newsletter",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

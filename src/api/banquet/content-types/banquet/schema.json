@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banquets",
+  "info": {
+    "singularName": "banquet",
+    "pluralName": "banquets",
+    "displayName": "Banquets"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::destination.destination"
+    },
+    "banquet_hall": {
+      "type": "component",
+      "component": "dynamic-zone.banquet",
+      "repeatable": true
+    },
+    "facilities": {
+      "type": "component",
+      "component": "dynamic-zone.facilities",
+      "repeatable": false
+    },
+    "banquet_venue_heading": {
+      "type": "string"
+    },
+    "banquet_venue_subheading": {
+      "type": "string"
+    },
+    "hallname_heading": {
+      "type": "string"
+    },
+    "size_heading": {
+      "type": "string"
+    },
+    "capacity_heading": {
+      "type": "string"
+    },
+    "arrangement_heading": {
+      "type": "string"
+    },
+    "banquet_venue_shortform": {
+      "type": "string"
+    },
+    "banquet_venue": {
+      "type": "component",
+      "component": "dynamic-zone.banquet-venue",
+      "repeatable": true
+    },
+    "booknow_heading": {
+      "type": "string"
+    },
+    "booknow_subheading": {
+      "type": "string"
+    },
+    "booknow_button": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  }
+}

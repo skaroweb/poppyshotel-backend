@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hotels",
+  "info": {
+    "singularName": "hotel",
+    "pluralName": "hotels",
+    "displayName": "Hotels"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::destination.destination"
+    },
+    "banner": {
+      "type": "component",
+      "component": "dynamic-zone.banner",
+      "repeatable": false
+    },
+    "overview": {
+      "type": "component",
+      "component": "dynamic-zone.overview",
+      "repeatable": false
+    },
+    "overview_hotel_details": {
+      "type": "component",
+      "component": "dynamic-zone.overview-hotel-details",
+      "repeatable": false
+    },
+    "highlight_facilities": {
+      "type": "component",
+      "component": "dynamic-zone.highlight-facilities",
+      "repeatable": true
+    },
+    "rooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::room.room",
+      "mappedBy": "hotel"
+    },
+    "dining": {
+      "type": "component",
+      "component": "dynamic-zone.dining",
+      "repeatable": false
+    },
+    "hotel_facilities": {
+      "type": "component",
+      "component": "dynamic-zone.facilities",
+      "repeatable": true
+    },
+    "room_facilities": {
+      "type": "component",
+      "component": "dynamic-zone.facilities",
+      "repeatable": true
+    },
+    "gallery": {
+      "type": "component",
+      "component": "dynamic-zone.gallery",
+      "repeatable": false
+    },
+    "contact_details": {
+      "type": "component",
+      "component": "dynamic-zone.contact-details",
+      "repeatable": false
+    },
+    "newsletter": {
+      "type": "component",
+      "component": "shared.newsletter",
+      "repeatable": false
+    },
+    "experiences": {
+      "type": "component",
+      "component": "dynamic-zone.experiences",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "location": {
+      "type": "component",
+      "component": "dynamic-zone.location",
+      "repeatable": false
+    },
+    "banquets": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banquet.banquet"
+    }
+  }
+}

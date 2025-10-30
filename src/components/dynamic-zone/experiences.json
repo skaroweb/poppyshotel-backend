@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_dynamic_zone_experiences",
+  "info": {
+    "displayName": "Experiences"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "experiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experience.experience"
+    }
+  },
+  "config": {}
+}

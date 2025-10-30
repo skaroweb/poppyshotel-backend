@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rooms",
+  "info": {
+    "singularName": "room",
+    "pluralName": "rooms",
+    "displayName": "Rooms"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::destination.destination"
+    },
+    "hotel": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hotel.hotel",
+      "inversedBy": "rooms"
+    },
+    "banner": {
+      "type": "component",
+      "component": "dynamic-zone.banner",
+      "repeatable": false
+    },
+    "overview_room": {
+      "type": "component",
+      "component": "dynamic-zone.overview-room",
+      "repeatable": false
+    },
+    "overview_room_details": {
+      "type": "component",
+      "component": "dynamic-zone.overview-room-details",
+      "repeatable": false
+    },
+    "facilities": {
+      "type": "component",
+      "component": "dynamic-zone.facilities",
+      "repeatable": true
+    },
+    "room_rules": {
+      "type": "component",
+      "component": "dynamic-zone.room-rules",
+      "repeatable": false
+    },
+    "contact_details": {
+      "type": "component",
+      "component": "dynamic-zone.contact-details",
+      "repeatable": false
+    },
+    "newsletter": {
+      "type": "component",
+      "component": "shared.newsletter",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_dynamic_zone_overview_hotel_details",
+  "info": {
+    "displayName": "Overview_hotel_details"
+  },
+  "options": {},
+  "attributes": {
+    "subheading": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image_alt": {
+      "type": "string"
+    },
+    "explore_button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "booknow_button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_dynamic_zone_overview_room_details",
+  "info": {
+    "displayName": "Overview_room_details"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "short_desc": {
+      "type": "string"
+    },
+    "squarefeet": {
+      "type": "string"
+    },
+    "bedsize": {
+      "type": "string"
+    },
+    "persons": {
+      "type": "string"
+    },
+    "viewroom": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image_alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

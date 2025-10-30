@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_dynamic_zone_offers",
+  "info": {
+    "displayName": "Offers"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "offer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offer.offer"
+    }
+  },
+  "config": {}
+}

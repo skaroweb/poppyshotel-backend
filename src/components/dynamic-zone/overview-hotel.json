@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_dynamic_zone_overview_hotels",
+  "info": {
+    "displayName": "Overview_hotel"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "hotels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hotel.hotel"
+    }
+  },
+  "config": {}
+}

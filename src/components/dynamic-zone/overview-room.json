@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_dynamic_zone_overview_rooms",
+  "info": {
+    "displayName": "Overview_room"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "squarefeet": {
+      "type": "string"
+    },
+    "bedsize": {
+      "type": "string"
+    },
+    "persons": {
+      "type": "string"
+    },
+    "booknow_button": {
+      "type": "component",
+      "component": "shared.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
