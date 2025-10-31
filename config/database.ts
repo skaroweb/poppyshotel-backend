@@ -7,8 +7,12 @@ module.exports = ({ env }) => {
   const isProduction = env("NODE_ENV") === "production";
 
   if (isProduction) {
-    // Use Postgres on Render
     const config = parse(env("DATABASE_URL"));
+
+    if (!config.host) {
+      throw new Error("DATABASE_URL is missing or invalid");
+    }
+
     return {
       connection: {
         client: "postgres",
@@ -25,7 +29,7 @@ module.exports = ({ env }) => {
     };
   }
 
-  // Local development — SQLite
+  // Local (SQLite)
   return {
     connection: {
       client: "sqlite",
