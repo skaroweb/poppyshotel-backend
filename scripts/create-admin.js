@@ -1,35 +1,34 @@
-const { Strapi } = require("@strapi/strapi");
+"use strict";
+
+const { createStrapi } = require("@strapi/strapi");
+const strapi = createStrapi();
 
 async function createAdmin() {
-  console.log("🚀 Starting Strapi to create admin user...");
+  await strapi.load();
 
-  // Load Strapi app (not start server)
-  const app = await Strapi().load();
-
-  const existingAdmin = await app.db.query("admin::user").findOne({
+  const hasAdmin = await strapi.db.query("admin::user").findOne({
     where: { email: "admin@poppyshotels.com" },
   });
 
-  if (existingAdmin) {
-    console.log("✅ Admin user already exists, skipping creation.");
-    process.exit(0);
+  if (!hasAdmin) {
+    await strapi.db.query("admin::user").create({
+      data: {
+        firstname: "Admin",
+        lastname: "User",
+        email: "admin@poppyshotels.com",
+        password: "Poppyshotel@123",
+        isActive: true,
+        roles: await strapi.db.query("admin::role").findMany(),
+      },
+    });
+    console.log("✅ Admin created");
+  } else {
+    console.log("⚠️ Admin already exists");
   }
 
-  const adminUser = {
-    firstname: "Admin",
-    lastname: "User",
-    email: "admin@poppyshotels.com",
-    password: "Poppyshotel@123",
-    isActive: true,
-  };
-
-  await app.db.query("admin::user").create({ data: adminUser });
-
-  console.log("🎉 Admin user created successfully!");
-  process.exit(0);
+  await strapi.destroy();
 }
 
 createAdmin().catch((err) => {
   console.error("❌ Error creating admin:", err);
-  process.exit(1);
 });
