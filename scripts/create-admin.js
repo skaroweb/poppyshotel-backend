@@ -33,3 +33,4 @@ createAdmin().catch((err) => {
   console.error("❌ Error creating admin:", err);
   process.exit(1);
 });
+//demo
