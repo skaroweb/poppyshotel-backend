@@ -1,27 +1,23 @@
-import path from "path";
+const path = require("path");
 
-export default ({ env }) => ({
+module.exports = ({ env }) => ({
   connection: {
     client: env("DATABASE_CLIENT", "sqlite"),
     connection:
-      env("DATABASE_CLIENT") === "postgres"
+      env("DATABASE_CLIENT") === "sqlite"
         ? {
-            host: env("DATABASE_HOST"),
-            port: env.int("DATABASE_PORT", 5432),
-            database: env("DATABASE_NAME"),
-            user: env("DATABASE_USERNAME"),
-            password: env("DATABASE_PASSWORD"),
-            ssl: env.bool("DATABASE_SSL", false)
-              ? { rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false) }
-              : false,
+            filename: path.join(__dirname, "..", ".tmp/data.db"),
           }
         : {
-            filename: path.join(
-              __dirname,
-              "..",
-              env("DATABASE_FILENAME", ".tmp/data.db")
-            ),
+            host: env("DATABASE_HOST", "localhost"),
+            port: env.int("DATABASE_PORT", 5432),
+            database: env("DATABASE_NAME", "your-db-name"),
+            user: env("DATABASE_USERNAME", "your-db-user"),
+            password: env("DATABASE_PASSWORD", "your-db-password"),
+            ssl: env.bool("DATABASE_SSL", false)
+              ? { rejectUnauthorized: false }
+              : false,
           },
-    useNullAsDefault: env("DATABASE_CLIENT") === "sqlite",
+    useNullAsDefault: true,
   },
 });

@@ -1,10 +1,11 @@
-const { Strapi } = require("@strapi/strapi");
+// scripts/create-admin.js
+const { createStrapi } = require("@strapi/strapi");
 
 async function createAdmin() {
   console.log("🚀 Starting Strapi to create admin user...");
 
-  // Load Strapi app (not start server)
-  const app = await Strapi().load();
+  const app = await createStrapi();
+  await app.load();
 
   const existingAdmin = await app.db.query("admin::user").findOne({
     where: { email: "admin@poppyshotels.com" },
