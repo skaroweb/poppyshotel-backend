@@ -1,32 +1,29 @@
-// scripts/create-admin.js
-const strapi = require("@strapi/strapi");
-const bcrypt = require("bcryptjs");
+const { Strapi } = require("@strapi/strapi");
 
 async function createAdmin() {
-  const app = await strapi().load();
+  console.log("🚀 Starting Strapi to create admin user...");
 
-  const adminExists = await strapi.db.query("admin::user").findOne({
+  // Load Strapi app (not start server)
+  const app = await Strapi().load();
+
+  const existingAdmin = await app.db.query("admin::user").findOne({
     where: { email: "admin@poppyshotels.com" },
   });
 
-  if (adminExists) {
-    console.log("✅ Admin already exists.");
+  if (existingAdmin) {
+    console.log("✅ Admin user already exists, skipping creation.");
     process.exit(0);
   }
 
-  const password = "Poppyshotel@123";
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const adminUser = {
+    firstname: "Admin",
+    lastname: "User",
+    email: "admin@poppyshotels.com",
+    password: "Poppyshotel@123",
+    isActive: true,
+  };
 
-  await strapi.db.query("admin::user").create({
-    data: {
-      firstname: "Admin",
-      lastname: "User",
-      email: "admin@poppyshotels.com",
-      password: hashedPassword,
-      isActive: true,
-      roles: ["strapi-super-admin"],
-    },
-  });
+  await app.db.query("admin::user").create({ data: adminUser });
 
   console.log("🎉 Admin user created successfully!");
   process.exit(0);
