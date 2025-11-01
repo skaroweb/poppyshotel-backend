@@ -1,8 +1,7 @@
-module.exports = ({ env }) => ({
+export default ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
-  port: env.int("PORT", 10000), // Render requires this
-  url: env("RENDER_EXTERNAL_URL", "https://poppyshotel-backend.onrender.com"),
+  port: env.int("PORT", 1337),
   app: {
-    keys: env.array("APP_KEYS", ["default-key-1", "default-key-2"]),
+    keys: env.array("APP_KEYS"),
   },
 });

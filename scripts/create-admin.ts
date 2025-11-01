@@ -1,42 +1,67 @@
-// scripts/create-admin.js
-// Creates an admin user if it doesn't exist, then exits (does NOT start the server).
-// Run this before starting Strapi.
+import strapi from "@strapi/strapi";
 
-const { createStrapi } = require("@strapi/strapi");
+// Extend process.env types
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      ADMIN_EMAIL?: string;
+      ADMIN_PASSWORD?: string;
+    }
+  }
+}
 
-(async () => {
+async function createAdmin() {
+  console.log("🚀 Starting Strapi to create admin...");
+
+  // ✅ Create Strapi app properly for v5
+  const app = await strapi.createStrapi().load();
+
   try {
-    const strapi = await createStrapi();
-    await strapi.start();
+    const db = app.db;
 
-    const email = process.env.FIRST_ADMIN_EMAIL || "admin@poppyshotels.com";
-    const password = process.env.FIRST_ADMIN_PASSWORD || "Poppyshotel@123";
-    const firstname = process.env.FIRST_ADMIN_FIRSTNAME || "Admin";
-    const lastname = process.env.FIRST_ADMIN_LASTNAME || "User";
+    // Get super admin role
+    const superAdminRole = await db.query("admin::role").findOne({
+      where: { code: "strapi-super-admin" },
+    });
 
-    const existing = await strapi.db
-      .query("admin::user")
-      .findOne({ where: { email } });
-
-    if (!existing) {
-      await strapi.db.query("admin::user").create({
-        data: {
-          email,
-          firstname,
-          lastname,
-          password,
-          isActive: true,
-        },
-      });
-      console.log("✅ Admin user created:", email);
-    } else {
-      console.log("ℹ️ Admin already exists:", email);
+    if (!superAdminRole) {
+      console.error("❌ Super admin role not found.");
+      process.exit(1);
     }
 
-    await strapi.stop();
-    process.exit(0);
-  } catch (err) {
-    console.error("❌ create-admin error:", err);
-    process.exit(1);
+    const email = process.env.ADMIN_EMAIL || "admin@poppyshotels.com";
+    const password = process.env.ADMIN_PASSWORD || "Poppyshotel@123";
+
+    // Check if admin already exists
+    const existingAdmin = await db.query("admin::user").findOne({
+      where: { email },
+    });
+
+    if (existingAdmin) {
+      console.log("ℹ️ Admin already exists, skipping creation.");
+      await app.destroy();
+      return;
+    }
+
+    // Create admin
+    const newAdmin = await db.query("admin::user").create({
+      data: {
+        firstname: "Admin",
+        lastname: "User",
+        email,
+        password,
+        isActive: true,
+        roles: [superAdminRole.id],
+      },
+    });
+
+    console.log("✅ Admin created successfully:", newAdmin.email);
+  } catch (error) {
+    console.error("❌ Error creating admin:", error);
+  } finally {
+    await app.destroy();
+    console.log("🧹 Strapi instance closed.");
   }
-})();
+}
+
+createAdmin();

@@ -1,9 +1,9 @@
-module.exports = ({ env }) => ({
+export default ({ env }) => ({
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
     sessions: {
-      maxSessionLifespan: 7 * 24 * 60 * 60, // 7 days
-      maxRefreshTokenLifespan: 30 * 24 * 60 * 60, // 30 days
+      maxSessionLifespan: 7 * 24 * 60 * 60,
+      maxRefreshTokenLifespan: 30 * 24 * 60 * 60,
     },
   },
   apiToken: {
@@ -13,12 +13,5 @@ module.exports = ({ env }) => ({
     token: {
       salt: env("TRANSFER_TOKEN_SALT"),
     },
-  },
-  secrets: {
-    encryptionKey: env("ENCRYPTION_KEY"),
-  },
-  flags: {
-    nps: env.bool("FLAG_NPS", true),
-    promoteEE: env.bool("FLAG_PROMOTE_EE", true),
   },
 });
