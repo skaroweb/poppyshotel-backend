@@ -1,9 +1,12 @@
 module.exports = ({ env }) => ({
   connection:
-    process.env.NODE_ENV === "production"
+    env("NODE_ENV") === "production"
       ? {
           client: "postgres",
-          connection: env("DATABASE_URL", ""),
+          connection: {
+            connectionString: env("DATABASE_URL"),
+            ssl: { rejectUnauthorized: false },
+          },
           useNullAsDefault: true,
         }
       : {
