@@ -1,19 +1,12 @@
 export default ({ env }) => ({
-  connection:
-    env("NODE_ENV") === "production"
-      ? {
-          client: "postgres",
-          connection: {
-            connectionString: env("DATABASE_URL"),
-            ssl: { rejectUnauthorized: false },
-          },
-          pool: { min: 0, max: 10 },
-        }
-      : {
-          client: "sqlite",
-          connection: {
+  connection: {
+    client: env("DATABASE_CLIENT", "sqlite"),
+    connection:
+      env("DATABASE_CLIENT") === "postgres"
+        ? env("DATABASE_URL")
+        : {
             filename: env("DATABASE_FILENAME", ".tmp/data.db"),
           },
-          useNullAsDefault: true,
-        },
+    useNullAsDefault: env("DATABASE_CLIENT") !== "postgres",
+  },
 });
