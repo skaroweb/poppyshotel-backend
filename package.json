@@ -9,7 +9,8 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start-no-create": "strapi start",
+    "start": "node ./scripts/create-admin.js && npm run start-no-create",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
